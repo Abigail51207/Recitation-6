@@ -49,5 +49,44 @@ class LinkedList:
     
 
     def duplicate(self, item):
-        # YOUR CODE STARTS HERE
-        pass
+        current = self.head
+        while current is not None:
+            if current.value == item:
+                newNode = Node(item)
+                newNode.next = current.next
+                current.next = newNode
+                if current == self.tail:
+                    self.tail = newNode
+                return 
+            current = current.next
+
+
+lst = LinkedList()
+lst.add(4) 
+lst.add(5) 
+lst.add(6) 
+#Head:Node(6)    
+#Tail:Node(4)    
+#List:6 -> 5 -> 4
+print(lst)
+lst.duplicate(6)
+#Head:Node(6)
+#Tail:Node(4)
+#List:6 -> 6 -> 5 -> 4
+print(lst)
+lst.duplicate(13) 
+#Head:Node(6)
+#Tail:Node(4)
+#List:6 -> 6 -> 5 -> 4
+print(lst)
+lst.add(1) 
+lst.duplicate(6)  
+#Head:Node(1)
+#Tail:Node(4)
+#List:1 -> 6 -> 6 -> 6 -> 6 -> 5 -> 4
+print(lst)
+lst.duplicate(4) 
+#Head:Node(1)
+#Tail:Node(4)
+#List:1 -> 6 -> 6 -> 6 -> 6 -> 5 -> 4 -> 4
+print(lst)
