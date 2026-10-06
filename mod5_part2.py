@@ -57,8 +57,9 @@ class LinkedList:
                 current.next = newNode
                 if current == self.tail:
                     self.tail = newNode
-                return 
-            current = current.next
+                current = newNode.next
+            else: 
+                current = current.next
 
 
 lst = LinkedList()
@@ -84,7 +85,6 @@ lst.duplicate(6)
 #Head:Node(1)
 #Tail:Node(4)
 #List:1 -> 6 -> 6 -> 6 -> 6 -> 5 -> 4
-print(lst)
 lst.duplicate(4) 
 #Head:Node(1)
 #Tail:Node(4)
